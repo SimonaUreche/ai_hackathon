@@ -1,0 +1,6 @@
+nltk
+sentence-transformers
+scikit-learn
+python-docx
+pandas
+openpyxl
