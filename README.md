@@ -1,40 +1,43 @@
-# AI Hackathon - 
+# CV–Job Matching Engine (POC)
 
-CV & Job Description Similarity Matcher
+This project implements an intelligent CV–job matching pipeline, designed to evaluate how well a developer's CV matches a given job description.
 
-**12.04.2025**
+The current version performs a full semantic and rule-based analysis using:
 
-## Project Description 
+-  **Semantic similarity** with a sentence-transformers model (JobBERT)
+-  **Technical skill matching** using TF-IDF based on a predefined skill list
+-  **Industry relevance** through keyword-based matching
 
-This project is designed to compute the similarity between a list of CVs and a list of job descriptions, both stored as separate documents. The purpose is to match candidates to the most suitable job descriptions using NLP techniques.
+---
 
-## Steps 
+## ✅ What it does (current status)
 
-1. **Read Documents**  
-   Load all CVs and job descriptions from their respective folders.
+- Loads CVs and job descriptions from `.docx` files
+- Preprocesses and compares each CV to every job using:
+  - Semantic vector similarity (60%)
+  - Skill coverage from a predefined list (30%)
+  - Industry keyword presence (10%)
+- Generates a **final match score (0–1)** and a **textual explanation**
+- Exports the results to an Excel file at:  
+  `outputs/results.xlsx`
 
-2. **Preprocess Text**  
-   Clean and standardize text:
-   - Lowercase conversion  
-   - Removal of stopwords  
-   - Punctuation removal  
-   - Tokenization and lemmatization
+---
 
-3. **Text Vectorization**  
-   Use TFIDF to convert text into numerical vectors
+##  Sample Output 
 
-4. **Compute Similarity**  
-   Calculate cosine similarity between all CVs and job descriptions.
+Each row = one CV–job pair, with a match score and an explanation:
 
-5. **Display Results**  
-   Output a similarity matrix that shows how well each CV matches each job description.
+```csv
+CV, Job, Score, Explanation
+cv_100_Elena_Andreea_Vâlceanu.docx, job_description_100_UIUX Designer.docx, 0.5279, CV-ul conține experiență clară în industria căutată. CV-ul conține puține skilluri relevante. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_100_Elena_Andreea_Vâlceanu.docx, job_description_10_Tech Lead.docx, 0.7104, CV-ul conține experiență clară în industria căutată. Doar o parte dintre skilluri sunt regăsite. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_100_Elena_Andreea_Vâlceanu.docx, job_description_11_Product Owner.docx, 0.5214, CV-ul conține experiență clară în industria căutată. CV-ul conține puține skilluri relevante. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_101_Anca_Miruna_Dobre.docx, job_description_100_UIUX Designer.docx, 0.5281, CV-ul conține experiență clară în industria căutată. CV-ul conține puține skilluri relevante. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_101_Anca_Miruna_Dobre.docx, job_description_10_Tech Lead.docx, 0.6901, CV-ul conține experiență clară în industria căutată. Doar o parte dintre skilluri sunt regăsite. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_101_Anca_Miruna_Dobre.docx, job_description_11_Product Owner.docx, 0.5430, CV-ul conține experiență clară în industria căutată. CV-ul conține puține skilluri relevante. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_102_Andrei_Călin_Vasile.docx, job_description_100_UIUX Designer.docx, 0.5315, CV-ul conține experiență clară în industria căutată. CV-ul conține puține skilluri relevante. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_102_Andrei_Călin_Vasile.docx, job_description_10_Tech Lead.docx, 0.7687, CV-ul conține experiență clară în industria căutată. Majoritatea skillurilor tehnice sunt prezente. Textul CV-ului este bine aliniat cu descrierea jobului.
+cv_102_Andrei_Călin_Vasile.docx, job_description_11_Product Owner.docx, 0.5180, CV-ul conține experiență clară în industria căutată. CV-ul conține puține skilluri relevante. CV-ul are o potrivire parțială cu descrierea jobului.
 
-##Output
-
-|        | JD_1 | JD_2 | JD_3 |
-|--------|------|------|------|
-| CV_1   | 0.87 | 0.35 | 0.52 |
-| CV_2   | 0.22 | 0.91 | 0.49 |
-| CV_3   | 0.67 | 0.43 | 0.89 |
 
 
