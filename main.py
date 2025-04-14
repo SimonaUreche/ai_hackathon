@@ -1,24 +1,32 @@
 import os
-import nltk
-from preprocessing import load_docx_from_folder
-from similarity import compute_similarity_matrix
-from export_results import save_matrix_to_excel
+import pandas as pd
+from preprocessing.clean_text import load_docx_from_folder
+from similarity.full_matcher import compute_full_match
 
-nltk.download('stopwords')
-
-cv_folder = 'DataSet/cv'
-job_folder = 'DataSet/job_descriptions'
-output_file = 'outputs/similarity_results.xlsx'
+cv_folder = "DataSet/cv"
+job_folder = "DataSet/job_descriptions"
+output_file = "outputs/results.xlsx"
 
 cv_texts, cv_files = load_docx_from_folder(cv_folder)
 job_texts, job_files = load_docx_from_folder(job_folder)
 
-similarity = compute_similarity_matrix(cv_texts, job_texts)
+cv_texts, cv_files = cv_texts[:3], cv_files[:3]
+job_texts, job_files = job_texts[:3], job_files[:3]
 
-for i, cv in enumerate(cv_files):
-    print(f"\nSimilarity for {cv}:")
-    for j, job in enumerate(job_files):
-        print(f"  {job}: {similarity[i][j]:.4f}")
+results = []
 
+for i, cv_text in enumerate(cv_texts):
+    for j, job_text in enumerate(job_texts):
+        final_score, explanation = compute_full_match(cv_text, job_text)
+
+        results.append({
+            "CV": cv_files[i],
+            "Job": job_files[j],
+            "Score": final_score,
+            "Explanation": explanation
+        })
+
+print(results)
+df = pd.DataFrame(results)
 os.makedirs(os.path.dirname(output_file), exist_ok=True)
-save_matrix_to_excel(similarity, cv_files, job_files, output_file)
+df.to_excel(output_file, index=False)
