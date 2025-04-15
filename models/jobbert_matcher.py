@@ -30,3 +30,4 @@ def compute_jobbert_similarity(cv_text, job_text):
     emb_job = sbert_model.encode(job_text, convert_to_tensor=True)
     score = util.cos_sim(emb_cv, emb_job).item()
     return round((score + 1) / 2, 4)
+
