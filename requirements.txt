@@ -5,3 +5,6 @@ python-docx
 pandas
 openpyxl
 transformers
+openai
+python-dotenv
+pdfminer.six
