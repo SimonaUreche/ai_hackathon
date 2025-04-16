@@ -9,7 +9,7 @@ output_dir = "data/results"
 os.makedirs(output_dir, exist_ok=True)
 
 #path to your sample files
-cv_path = "data/cv/Resume_Oana_Repede.pdf"
+cv_path = "data/cv/cv_test.docx"
 job_path = "data/job_descriptions/job_test.docx"
 
 #extract text from both files
