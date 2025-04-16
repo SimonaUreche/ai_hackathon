@@ -37,14 +37,12 @@ def compute_industry_score(cv_text: str, job_text: str) -> float:
     """
     Compute industry match score between CV and job description.
     """
-    # Extract industries from both texts
     job_industries = extract_industries(job_text)
     cv_industries = extract_industries(cv_text)
     
     if not job_industries:
         return 1.0  # No specific industry requirements
         
-    # Count matches
     matched = [i for i in job_industries if i in cv_industries]
     
     if len(matched) == 0:

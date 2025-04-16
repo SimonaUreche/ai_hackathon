@@ -1,8 +1,24 @@
 {
-  "name": "Oana Repede",
-  "skills": "Project Management, Budget Management, Resource Coordination, Cost Reporting, Administrative Tasks",
-  "technologies": [],
-  "industries": null,
-  "experience_years": "2 years",
-  "summary": "Experienced working student in project management with a background in credit & collection assistance. Currently pursuing a Bachelor's degree in Computer Science."
+  "name": "Florin Neagu",
+  "skills": "Python, TensorFlow, JavaScript, ReactJS, AWS SageMaker, Docker, SQL, PostgreSQL, Figma, Adobe XD, leadership, project management",
+  "technologies": [
+    "Python",
+    "TensorFlow",
+    "JavaScript",
+    "ReactJS",
+    "AWS SageMaker",
+    "Docker",
+    "SQL",
+    "PostgreSQL",
+    "Figma",
+    "Adobe XD",
+    "React Native"
+  ],
+  "industries": [
+    "Retail",
+    "Industrial",
+    "Fitness Tracking"
+  ],
+  "experience_years": "4+",
+  "summary": "Florin Neagu is a proficient software developer with over 4 years of experience in predictive analytics, web application development, and user-centric mobile app design. Skilled in Python, TensorFlow, JavaScript, and AWS technologies, Florin has successfully led projects that enhanced decision-making and increased user engagement."
 }

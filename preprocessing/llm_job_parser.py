@@ -1,38 +1,45 @@
-import openai
-from preprocessing.prompt_templates import JOB_EXTRACTION_PROMPT
+
+from openai import OpenAI
 from dotenv import load_dotenv
 import os
-import json
+import json 
+from preprocessing.prompt_templates import JOB_EXTRACTION_PROMPT
 
 load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = api_key
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def parse_job_with_llm(text: str) -> dict:
-    prompt = JOB_EXTRACTION_PROMPT.format(job_text=text)
+def parse_job_with_llm(job_text: str) -> dict:
+    schema = {
+        "type": "object",
+        "properties": {
+            "job_title": {"type": "string"},
+            "required_skills": {
+                "type": "array",
+                "items": {"type": "string"}
+            },
+            "industry": {"type": "string"},
+            "years_of_experience_required": {"type": "string"},
+            "summary": {"type": "string"}
+        },
+        "required": ["job_title", "required_skills", "industry", "years_of_experience_required", "summary"],
+        "additionalProperties": False
+    }
 
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        temperature=0.2,
-        messages=[{"role": "user", "content": prompt}]
+    prompt = JOB_EXTRACTION_PROMPT.format(job_text=job_text)
+
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": prompt}],
+        tools=[{
+            "type": "function",
+            "function": {
+                "name": "extract_job_data",
+                "description": "Extracts structured data from a job description.",
+                "parameters": schema,
+                "strict": True
+            }
+        }],
+        tool_choice="required"
     )
 
-    try:
-        print(response['choices'][0]['message']['content'])
-        raw_response = response['choices'][0]['message']['content'].strip()
-        response_json = json.loads(raw_response)
-        return {
-            'job_title': response_json.get('Job Title'),
-            'required_skills': response_json.get('Required Technical Skills'),
-            'industry': response_json.get('Relevant Industry'),
-            'years_of_experience_required': response_json.get('Years of experience required'),
-            'summary': response_json.get('Short summary')
-        }
-    except json.JSONDecodeError as e:
-        print("Failed to decode JSON from LLM:", e)
-        print("Raw response:", raw_response)
-        return {}
-    except Exception as e:
-        print("Unexpected error:", e)
-        return {}
-
+    return json.loads(response.choices[0].message.tool_calls[0].function.arguments)
