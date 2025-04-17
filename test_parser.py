@@ -1,48 +1,49 @@
+import os
+import json
 from preprocessing.file_converter import extract_text
 from preprocessing.llm_cv_parser import parse_cv_with_llm
 from preprocessing.llm_job_parser import parse_job_with_llm
-from textwrap import fill
-import json
-import os
+from models.jobbert_matcher import compute_jobbert_similarity
 
-output_dir = "data/results"
-os.makedirs(output_dir, exist_ok=True)
+# 1. Căi către fișiere
+cv_folder = "DataSet/cv"
+job_path = "DataSet/job_descriptions/job_description_32_Full Stack Developer.docx" 
 
-cv_path = "data/cv/cv_test.docx"
-job_path = "data/job_descriptions/job_test.docx"
-
-cv_text = extract_text(cv_path)
+# 2. Extract + Parse job
+print("🔍 Extracting and parsing job description...")
 job_text = extract_text(job_path)
+job_data = parse_job_with_llm(job_text)  # Folosim direct structura parsată
 
-print("\n🔍 Extracting CV data via LLM...")
-cv_result = parse_cv_with_llm(cv_text)
+# 3. Procesăm toate CV-urile
+cv_scores = []
+print("\n📄 Processing CVs...")
 
-print("\n🔍 Extracting Job Description via LLM...")
-job_result = parse_job_with_llm(job_text)
+for filename in os.listdir(cv_folder):
+    if filename.endswith(".docx"):
+        cv_path = os.path.join(cv_folder, filename)
+        try:
+            cv_text = extract_text(cv_path)
+            cv_data = parse_cv_with_llm(cv_text)  # Folosim direct structura parsată
+            
+            # Calculăm scorul cu ambele versiuni de text (raw + parsate)
+            score_raw = compute_jobbert_similarity(cv_text, job_text)  # Doar text brut
+            score_enhanced = compute_jobbert_similarity(
+                cv_text, 
+                job_text,
+                cv_parsed=cv_data,
+                job_parsed=job_data
+            )
+            
+            cv_scores.append((filename, score_raw, score_enhanced))
+        except Exception as e:
+            print(f"❌ Failed to process {filename}: {e}")
 
-def print_formatted(data, title):
-    print(f"\n📄 {title}")
-    print("-" * 60)
-    for key, value in data.items():
-        if isinstance(value, list):
-            print(f"{key.upper()}:\n  - " + "\n  - ".join(str(v) for v in value))
-        else:
-            wrapped = fill(str(value), width=80)
-            print(f"{key.upper()}:\n  {wrapped}")
-        print()
+# 4. Afișăm top 5 pentru ambele metode
+def print_top(scores, title, col_idx):
+    print(f"\n🏆 {title}:")
+    scores.sort(key=lambda x: x[col_idx], reverse=True)
+    for i, (filename, *scores) in enumerate(scores[:5], 1):
+        print(f"{i}. {filename} — Scor: {scores[col_idx-1]:.4f}")
 
-print_formatted(cv_result, "Parsed CV")
-print_formatted(job_result, "Parsed Job")
-
-cv_output_path = os.path.join(output_dir, "parsed_cv.json")
-job_output_path = os.path.join(output_dir, "parsed_job.json")
-
-with open(cv_output_path, 'w', encoding='utf-8') as f:
-    json.dump(cv_result, f, indent=2, ensure_ascii=False)
-
-with open(job_output_path, 'w', encoding='utf-8') as f:
-    json.dump(job_result, f, indent=2, ensure_ascii=False)
-
-print(f"\n✅ Results saved:")
-print(f"CV:   {cv_output_path}")
-print(f"Job:  {job_output_path}")
+print_top(cv_scores, "Top 5 CV-uri (text brut)", 1)
+print_top(cv_scores, "Top 5 CV-uri (cu date structurate)", 2)
