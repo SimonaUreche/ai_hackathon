@@ -1,0 +1,19 @@
+{
+  "job_title": "Junior Tech Lead",
+  "required_skills": [
+    "programming languages such as Java, Python, or C#",
+    "agile development methodologies",
+    "problem-solving",
+    "attention to detail",
+    "communication",
+    "interpersonal skills",
+    "cloud platforms such as AWS, Azure, or Google Cloud",
+    "DevOps practices and tools such as Docker, Jenkins, or Kubernetes",
+    "front-end frameworks like React, Angular, or Vue.js",
+    "database management systems, including SQL and NoSQL databases",
+    "mentoring"
+  ],
+  "industry": "IT",
+  "years_of_experience_required": "2+ years",
+  "summary": "The Junior Tech Lead will assist in leading a development team to design, develop, and implement software solutions. The role involves collaborating with senior tech leads and project managers, participating in code reviews, and staying updated on emerging technologies. The position requires experience in software development and strong communication skills."
+}

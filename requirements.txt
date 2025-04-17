@@ -4,4 +4,7 @@ scikit-learn
 python-docx
 pandas
 openpyxl
-spacy
+transformers
+openai
+python-dotenv
+pdfminer.six
