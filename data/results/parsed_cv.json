@@ -1,8 +1,86 @@
 {
-  "name": null,
-  "skills": [],
-  "technologies": [],
-  "industries": [],
-  "experience_years": null,
-  "summary": null
+  "name": "Florin Neagu",
+  "skills": [
+    "Python",
+    "JavaScript",
+    "AWS SageMaker",
+    "SQL",
+    "Figma"
+  ],
+  "technologies": [
+    "Python",
+    "TensorFlow",
+    "JavaScript",
+    "ReactJS",
+    "AWS SageMaker",
+    "Docker",
+    "SQL",
+    "PostgreSQL",
+    "Figma",
+    "Adobe XD"
+  ],
+  "industries": [
+    "Retail",
+    "Industrial",
+    "Fitness"
+  ],
+  "experience_years": 0,
+  "relevant_experience": 0,
+  "skill_ratings": {
+    "Python": 4,
+    "TensorFlow": 4,
+    "JavaScript": 3,
+    "ReactJS": 3,
+    "AWS SageMaker": 2,
+    "SQL": 3,
+    "PostgreSQL": 3,
+    "Figma": 2
+  },
+  "languages": {
+    "English": "C1",
+    "Spanish": "B2"
+  },
+  "certifications": [
+    "AWS Certified Machine Learning – Specialty",
+    "TensorFlow Developer Certificate"
+  ],
+  "education": [
+    {
+      "degree_level": "Master's",
+      "institution": "University Politehnica of Bucharest",
+      "duration": "2 years"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Predictive Analytics Platform for Retail",
+      "technologies": [
+        "Python",
+        "TensorFlow",
+        "AWS SageMaker",
+        "Docker"
+      ],
+      "summary": "Led the development of a predictive analytics platform using Python and TensorFlow to forecast retail sales trends."
+    },
+    {
+      "title": "Interactive Web Application for Real-time Data Visualization",
+      "technologies": [
+        "JavaScript",
+        "ReactJS",
+        "SQL",
+        "PostgreSQL"
+      ],
+      "summary": "Developed an interactive web application using ReactJS and JavaScript to visualize real-time data from IoT devices."
+    },
+    {
+      "title": "User-centric Mobile App Design for Fitness Tracking",
+      "technologies": [
+        "Figma",
+        "Adobe XD",
+        "React Native"
+      ],
+      "summary": "Designed a mobile application interface focused on fitness tracking, employing Figma and Adobe XD."
+    }
+  ],
+  "summary": "Experienced professional with expertise in Python, TensorFlow, and AWS SageMaker. Skilled in developing predictive analytics platforms and interactive web applications for real-time data visualization."
 }
