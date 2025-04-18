@@ -1,0 +1,41 @@
+{
+  "job_title": "Junior Tech Lead",
+  "industry": "Information Technology",
+  "required_skills": [
+    "Bachelor’s degree in Computer Science, Information Technology, or a related field",
+    "2+ years of experience in software development with Java, Python, or C#",
+    "Experience with agile development methodologies",
+    "Strong problem-solving skills and attention to detail",
+    "Excellent communication and interpersonal skills"
+  ],
+  "preferred_skills": [
+    "Experience with cloud platforms such as AWS, Azure, or Google Cloud",
+    "Familiarity with DevOps practices and tools like Docker, Jenkins, or Kubernetes",
+    "Knowledge of front-end frameworks like React, Angular, or Vue.js",
+    "Understanding of database management systems including SQL and NoSQL databases",
+    "Ability to mentor junior developers and foster a collaborative team environment"
+  ],
+  "years_of_experience_required": "2+ years",
+  "technologies": [
+    "Java",
+    "Python",
+    "C#",
+    "AWS",
+    "Azure",
+    "Google Cloud",
+    "Docker",
+    "Jenkins",
+    "Kubernetes",
+    "React",
+    "Angular",
+    "Vue.js",
+    "SQL",
+    "NoSQL"
+  ],
+  "soft_skills": [
+    "Teamwork",
+    "Collaboration",
+    "Mentoring"
+  ],
+  "summary": "As a Junior Tech Lead at Innovative Solutions Inc., you will assist in leading a team of developers to design, develop, and implement software solutions. You will collaborate with senior tech leads and project managers to ensure project timelines are met, participate in code reviews, and contribute to technical documentation. Strong problem-solving skills, communication, and interpersonal skills are essential for success in this role."
+}

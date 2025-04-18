@@ -1,0 +1,10 @@
+nltk
+sentence-transformers
+scikit-learn
+python-docx
+pandas
+openpyxl
+transformers
+openai
+python-dotenv
+pdfminer.six
