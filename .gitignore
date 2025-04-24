@@ -1,0 +1,26 @@
+# Virtual environments
+.venv/
+venv/
+pages/.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Environment
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Others
+*.log
+*.sqlite3
