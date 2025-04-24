@@ -1,7 +1,0 @@
-python
-sql
-react
-docker
-aws
-html
-css

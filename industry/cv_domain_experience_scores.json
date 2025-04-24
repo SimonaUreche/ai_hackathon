@@ -1,0 +1,602 @@
+{
+  "cv_101_Anca_Miruna_Dobre.docx": {
+    "Retail": 1,
+    "Transportation & Logistics": 1
+  },
+  "cv_105_Andrei_Mihailescu.docx": {
+    "Education": 0.5378069639205932,
+    "Retail": 0.5315082788467407
+  },
+  "cv_10_Andrei_Munteanu.docx": {
+    "Retail": 1,
+    "Transportation & Logistics": 1
+  },
+  "cv_110_Adrian_C\u0103lin_Dumitrescu.docx": {
+    "Manufacturing": 0.5089455008506775
+  },
+  "cv_117_Adrian_C\u0103t\u0103lin_Marinescu.docx": {
+    "Manufacturing": 0.5066753149032592
+  },
+  "cv_118_Alina_Stoianescu.docx": {
+    "Education": 1,
+    "Retail": 0.5713306784629821,
+    "E-commerce": 0.5380016028881073,
+    "Finance (non-banking)": 0.5241303205490112
+  },
+  "cv_120_Adrian_Dumitru_Marinescu.docx": {
+    "Retail": 0.5068669438362121
+  },
+  "cv_121_Ioana_Radu.docx": {
+    "Retail": 0.5296397030353546
+  },
+  "cv_123_Raluca_Munteanu.docx": {
+    "Manufacturing": 0.5346866369247436
+  },
+  "cv_127_Adrian_Mihailescu.docx": {
+    "Education": 1,
+    "Media & Entertainment": 0.5192795753479004
+  },
+  "cv_128_Alexandru_Mihail_Dr\u0103gulescu.docx": {
+    "Retail": 0.5578261494636536
+  },
+  "cv_129_Andrei_Mihail_Georgescu.docx": {
+    "Banking": 0.503870165348053
+  },
+  "cv_12_Matei_Dobreanu.docx": {
+    "Manufacturing": 0.5152069389820099
+  },
+  "cv_132_Adrian_C\u0103t\u0103lin_Dumitru.docx": {
+    "Education": 0.5275893330574035
+  },
+  "cv_134_Anca_Mirela_Dobre.docx": {
+    "Education": 1,
+    "Retail": 1
+  },
+  "cv_135_Adrian_C\u0103lin_Dr\u0103ghici.docx": {
+    "Education": 1,
+    "Retail": 1
+  },
+  "cv_136_Andrei_Vasilescu.docx": {
+    "Manufacturing": 0.5104052543640136
+  },
+  "cv_138_Adrian_C\u0103lin_Tudor.docx": {
+    "Retail": 0.5809866964817048
+  },
+  "cv_139_Andrei_Mihail_St\u0103nescu.docx": {
+    "Education": 1
+  },
+  "cv_142_Amalia_Radu\u021b\u0103.docx": {
+    "Education": 1
+  },
+  "cv_145_Ioana_Radu\u021bescu.docx": {
+    "Retail": 0.5397451043128967
+  },
+  "cv_153_Sorina_R\u0103dulescu.docx": {
+    "Retail": 0.5615228235721588
+  },
+  "cv_159_Mihai_Andrei_V\u0103silescu.docx": {
+    "Education": 1,
+    "Retail": 1,
+    "E-commerce": 0.5001103043556213
+  },
+  "cv_160_Irina_C\u0103t\u0103lina_Munteanu.docx": {
+    "Retail": 0.5258722722530365
+  },
+  "cv_163_Andrei_Vasile_Dumitrache.docx": {
+    "E-commerce": 0.5796047568321228
+  },
+  "cv_164_Adrian_Petrescu_Ionescu.docx": {
+    "Retail": 0.5282325267791748
+  },
+  "cv_165_Adriana_Voicu\u021bescu.docx": {
+    "Retail": 0.5769227862358093
+  },
+  "cv_166_Andrei_Mihailescu.docx": {
+    "Manufacturing": 0.5885191679000854
+  },
+  "cv_167_Andrei_C\u0103lin_Dumitrescu.docx": {
+    "Manufacturing": 0.5906909823417663,
+    "Retail": 0.5723189890384675
+  },
+  "cv_16_Ana-Maria_C\u0103linescu.docx": {
+    "Healthcare": 1,
+    "Retail": 1
+  },
+  "cv_170_Elena_St\u0103nescu.docx": {
+    "Retail": 1
+  },
+  "cv_172_Andrei_Mihail_C\u0103lin.docx": {
+    "Retail": 0.510701161623001
+  },
+  "cv_175_Andrei_Munteanu.docx": {
+    "Retail": 0.5130977749824523
+  },
+  "cv_176_Andrei_C\u0103t\u0103lin_Dumitrescu.docx": {
+    "Education": 1,
+    "Retail": 1
+  },
+  "cv_178_Adrian_Costache_Dumitrescu.docx": {
+    "Retail": 1
+  },
+  "cv_183_Alexandru_Mihail_T\u0103nase.docx": {
+    "Manufacturing": 0.5221230506896972,
+    "Retail": 0.5115955948829651
+  },
+  "cv_187_Mihai_R\u0103zvan_Dumitrescu.docx": {
+    "Manufacturing": 0.5512517809867858
+  },
+  "cv_189_Alexandru_\u0218erban_Radu.docx": {
+    "Retail": 0.5293323278427124
+  },
+  "cv_192_Andrei_Mihailescu.docx": {
+    "E-commerce": 0.5640790581703186
+  },
+  "cv_196_Andrei_C\u0103lin_Dumitrescu.docx": {
+    "Retail": 1,
+    "E-commerce": 0.5213287532329559
+  },
+  "cv_198_Mihnea_Radu_C\u0103lin.docx": {
+    "Education": 1,
+    "Retail": 1,
+    "E-commerce": 0.5137706160545349
+  },
+  "cv_1_Florin_Neagu.docx": {
+    "Retail": 0.5883664667606354
+  },
+  "cv_200_Andrei_C\u0103t\u0103lin_Dinu.docx": {
+    "Manufacturing": 0.5148986399173736
+  },
+  "cv_201_Andrei_Dumitrescu_Teodor.docx": {
+    "Education": 1,
+    "Retail": 0.5214769959449768
+  },
+  "cv_202_Alin_Toma_Iliescu.docx": {
+    "Retail": 1
+  },
+  "cv_207_Ilinca_Dobreanu.docx": {
+    "Energy & Utilities": 0.5326653182506561
+  },
+  "cv_212_Mihai_Andrei_Dr\u0103ghicescu.docx": {
+    "Retail": 0.5439765483140946
+  },
+  "cv_214_Dorin_Cristea_R\u0103dulescu.docx": {
+    "Healthcare": 1,
+    "Retail": 1
+  },
+  "cv_217_Mihai_R\u0103ducanu.docx": {
+    "Manufacturing": 0.5341315984725952
+  },
+  "cv_21_Anca_Marin_Dumitrescu.docx": {
+    "Education": 0.5759110569953918
+  },
+  "cv_223_Andrei_T\u0103n\u0103sescu.docx": {
+    "Retail": 0.509505820274353
+  },
+  "cv_228_Raluca_M\u0103d\u0103lina_Stancu.docx": {
+    "Manufacturing": 0.5170844316482544
+  },
+  "cv_22_Andrei_Mihailescu.docx": {
+    "Retail": 0.5882086634635926,
+    "Banking": 0.5370220899581909
+  },
+  "cv_237_Alexandru_Vasile_Florea.docx": {
+    "Retail": 0.5365408480167388
+  },
+  "cv_239_Andrei_Vasile_Dumitrescu.docx": {
+    "Manufacturing": 0.541876596212387
+  },
+  "cv_23_Mihai_Dr\u0103ghici_Tudor.docx": {
+    "Retail": 0.5823843061923981
+  },
+  "cv_241_Mircea_Dr\u0103ghicescu.docx": {
+    "Retail": 0.5572045326232911
+  },
+  "cv_244_Andrei_Stoianescu.docx": {
+    "Manufacturing": 1,
+    "Retail": 0.591057825088501
+  },
+  "cv_247_Andrei_Mihail_Radu.docx": {
+    "Education": 1,
+    "Retail": 1,
+    "Finance (non-banking)": 1
+  },
+  "cv_248_Lavinia_Dr\u0103ghici.docx": {
+    "Retail": 1,
+    "E-commerce": 0.5419522881507873
+  },
+  "cv_257_Anca_Miruna_Dobre.docx": {
+    "Education": 1
+  },
+  "cv_261_Andrei_C\u0103lin_Vasile.docx": {
+    "Manufacturing": 0.5449021279811859
+  },
+  "cv_262_Adrian_Mihai_V\u0103s\u00eei.docx": {
+    "Education": 0.5591225743293762
+  },
+  "cv_265_Adrian_Mure\u0219anu.docx": {
+    "Manufacturing": 0.5150813579559326
+  },
+  "cv_266_Adrian_Dumitrescu_Popa.docx": {
+    "Retail": 1
+  },
+  "cv_269_Adrian_Mitrea.docx": {
+    "Retail": 1
+  },
+  "cv_271_Andrei_Dumitru_Radu.docx": {
+    "Healthcare": 1,
+    "Retail": 1
+  },
+  "cv_275_Raluca_Dumitrescu_Serban.docx": {
+    "Retail": 0.5732764482498169,
+    "Healthcare": 0.5041056990623474
+  },
+  "cv_279_Mihai_C\u0103lin_Radu.docx": {
+    "Retail": 1
+  },
+  "cv_280_Andrei_Negru\u021biu.docx": {
+    "Education": 0.500786817073822
+  },
+  "cv_282_Andrei_Vasile_Dumitrescu.docx": {
+    "Retail": 0.5077077269554138
+  },
+  "cv_284_Mihai_Radu_Golescu.docx": {
+    "Retail": 0.51357960999012
+  },
+  "cv_286_Andrei_Dumitru_Ciobanu.docx": {
+    "Retail": 0.5681142985820771
+  },
+  "cv_289_Adrian_Matei_Negru.docx": {
+    "Manufacturing": 1
+  },
+  "cv_293_Adrian_Florin_Bratu.docx": {
+    "Education": 1,
+    "Retail": 0.5383549451828002
+  },
+  "cv_294_Adrian_Munteanu.docx": {
+    "Retail": 0.5293864727020263
+  },
+  "cv_298_Adrian_\u0218erbanescu.docx": {
+    "Retail": 1,
+    "Education": 0.5099850058555603
+  },
+  "cv_299_Adrian_Luca_Munteanu.docx": {
+    "Retail": 0.5339644968509674
+  },
+  "cv_301_Andrei_Munteanu.docx": {
+    "Retail": 0.5946630120277405
+  },
+  "cv_305_Andrei_Mihailescu.docx": {
+    "Retail": 1,
+    "Manufacturing": 0.5155937194824218
+  },
+  "cv_309_Adrian_C\u0103t\u0103lin_Stoica.docx": {
+    "Retail": 1
+  },
+  "cv_312_Andrei_Mih\u0103ilescu.docx": {
+    "Education": 1,
+    "Retail": 0.5263304233551025,
+    "Media & Entertainment": 0.5122926890850067
+  },
+  "cv_314_Mihai_Dorin_B\u0103lan.docx": {
+    "Manufacturing": 0.5306894600391387
+  },
+  "cv_317_Raluca_Mihailescu.docx": {
+    "Retail": 0.5101996481418609
+  },
+  "cv_319_Raluca_Antonia_Neagu.docx": {
+    "Retail": 0.5032728433609008
+  },
+  "cv_324_Andrei_Mihailescu.docx": {
+    "Manufacturing": 0.5139439821243286
+  },
+  "cv_326_Andrei_Vasile_Radu.docx": {
+    "Manufacturing": 0.5660062253475189
+  },
+  "cv_327_Adrian_Vasile_Dumitrescu.docx": {
+    "Education": 1,
+    "Retail": 1,
+    "Transportation & Logistics": 0.5675978481769561
+  },
+  "cv_329_Adrian_Costache_Dumitrescu.docx": {
+    "Retail": 0.5443803191184997
+  },
+  "cv_32_Raluca_Andreea_Dumitru.docx": {
+    "Real Estate": 0.5137469887733459
+  },
+  "cv_331_Andrei_Mihail_Dr\u0103ghici.docx": {
+    "Education": 0.527312433719635
+  },
+  "cv_333_Adrian_Mircea_Dumitrescu.docx": {
+    "Manufacturing": 0.5207244277000427
+  },
+  "cv_336_Adrian_Dr\u0103ghici_Iliescu.docx": {
+    "Education": 1
+  },
+  "cv_337_Andrei_C\u0103linescu.docx": {
+    "E-commerce": 0.5380409479141235
+  },
+  "cv_338_Andrei_C\u0103lin_Vasile.docx": {
+    "E-commerce": 0.5146162271499634
+  },
+  "cv_340_C\u0103t\u0103lin_Andrei_Dumitrescu.docx": {
+    "Retail": 0.5227854967117309
+  },
+  "cv_341_Andrei_C\u0103lin_Dumitrescu.docx": {
+    "Education": 1
+  },
+  "cv_343_Alexandru_Mihailescu.docx": {
+    "Retail": 1
+  },
+  "cv_347_Andrei_Mugurel_Toma.docx": {
+    "Retail": 0.5083597421646118
+  },
+  "cv_357_Adrian_Mihai_Dumitrescu.docx": {
+    "Retail": 1,
+    "Healthcare": 0.5807615935802459
+  },
+  "cv_358_Adela_V\u0103sianu.docx": {
+    "Manufacturing": 1
+  },
+  "cv_359_Adrian_Matei_Dumitrescu.docx": {
+    "Retail": 0.5265632688999176
+  },
+  "cv_362_Andrei_Costache_Marinescu.docx": {
+    "Manufacturing": 0.5257007002830505
+  },
+  "cv_365_Andrei_Cristea_Dumitrescu.docx": {
+    "Education": 1,
+    "Retail": 0.5884649872779846
+  },
+  "cv_368_Raluca_Dr\u0103ghici.docx": {
+    "Retail": 1
+  },
+  "cv_370_Mihai_Andrei_Dumitrescu.docx": {
+    "Media & Entertainment": 0.5156163334846496
+  },
+  "cv_373_Alexandra_Munteanu.docx": {
+    "E-commerce": 1,
+    "Education": 0.5955481648445129
+  },
+  "cv_376_Andrei_Valentin_Dumitrescu.docx": {
+    "Retail": 0.5653907775878906
+  },
+  "cv_378_Adrian_Florin_Matei.docx": {
+    "Retail": 0.5114677667617797
+  },
+  "cv_379_Adrian_C\u0103t\u0103lin_Dobre.docx": {
+    "Manufacturing": 0.5500584959983825
+  },
+  "cv_37_Radu_Mihnea_Dr\u0103goi.docx": {
+    "Healthcare": 0.5664422035217285
+  },
+  "cv_382_Andrei_C\u0103lin_Dumitrescu.docx": {
+    "Retail": 0.540101158618927,
+    "Finance (non-banking)": 0.5304205179214477
+  },
+  "cv_385_Andrei_Mihailescu.docx": {
+    "Education": 1,
+    "Retail": 0.5664270043373107
+  },
+  "cv_387_Irina_C\u0103linescu.docx": {
+    "Education": 1,
+    "Retail": 1,
+    "Transportation & Logistics": 1
+  },
+  "cv_388_Andrei_R\u0103zvan_Munteanu.docx": {
+    "Retail": 0.5332293629646301
+  },
+  "cv_390_Adrian_C\u0103t\u0103lin_Dumitru.docx": {
+    "Education": 1
+  },
+  "cv_393_Andrei_Mihailescu.docx": {
+    "E-commerce": 1
+  },
+  "cv_394_Adrian_Mihailescu.docx": {
+    "E-commerce": 0.551678067445755,
+    "Retail": 0.5493445217609405
+  },
+  "cv_396_Andrei_C\u0103lin_Voinescu.docx": {
+    "E-commerce": 0.5421283364295959
+  },
+  "cv_399_Andrei_Mihail_Radu.docx": {
+    "Retail": 1,
+    "E-commerce": 0.5221182465553283,
+    "Finance (non-banking)": 0.5123654067516327
+  },
+  "cv_39_Marius_Andrei_Dumitrescu.docx": {
+    "Education": 1
+  },
+  "cv_401_Mihai_D\u0103nu\u021b_Radu.docx": {
+    "Manufacturing": 0.5167656660079956
+  },
+  "cv_406_Andrei_Petrescu.docx": {
+    "Education": 1
+  },
+  "cv_407_Andrei_Dumitrescu_Toma.docx": {
+    "Retail": 0.530130398273468
+  },
+  "cv_408_Andrei_Matei_Iliescu.docx": {
+    "Retail": 1,
+    "Education": 0.5479147493839264
+  },
+  "cv_40_Mihai_C\u0103lin_Dumitrescu.docx": {
+    "Retail": 1
+  },
+  "cv_411_Andrei_R\u0103dulescu.docx": {
+    "Retail": 0.5122472673654557
+  },
+  "cv_414_Adrian_Vasile_Dumitrescu.docx": {
+    "Retail": 0.5055909872055053
+  },
+  "cv_416_Andrei_Mihai_Dumitrescu.docx": {
+    "Retail": 0.543819111585617,
+    "Healthcare": 0.5032509088516235
+  },
+  "cv_418_Andrei_Teodor_Vasile.docx": {
+    "Retail": 0.5551909029483795
+  },
+  "cv_421_Adrian_St\u0103nciulescu.docx": {
+    "Retail": 0.5568817436695099,
+    "Manufacturing": 0.5321572244167327
+  },
+  "cv_422_Andrei_Radu\u0219anu.docx": {
+    "Education": 1
+  },
+  "cv_423_Valentin_Mircea_Andrei.docx": {
+    "Retail": 0.5444350361824035
+  },
+  "cv_424_Andrei_C\u0103lin_Marinescu.docx": {
+    "Education": 1
+  },
+  "cv_425_Adrian_R\u0103zvan_Dumitrescu.docx": {
+    "Manufacturing": 0.5597354888916015
+  },
+  "cv_426_Andrei_Mihailescu.docx": {
+    "Retail": 1
+  },
+  "cv_42_Andrei_Dumitrescu_Marin.docx": {
+    "Retail": 0.5380084633827209,
+    "Education": 0.5207021594047546
+  },
+  "cv_430_Andrei_Dumitru_Vasile.docx": {
+    "Healthcare": 1
+  },
+  "cv_431_Mihai_Adrian_R\u0103dulescu.docx": {
+    "Retail": 0.5303796648979187
+  },
+  "cv_433_Mihai_R\u0103zvan_Dumitrescu.docx": {
+    "Education": 1
+  },
+  "cv_436_Mihai_Dr\u0103ghiciu.docx": {
+    "Retail": 0.5112480640411377
+  },
+  "cv_438_Florin_Alexandru_Dobre.docx": {
+    "Manufacturing": 0.5452426195144653
+  },
+  "cv_440_Teodor_M\u0103rgineanu.docx": {
+    "Retail": 0.5102338314056396
+  },
+  "cv_446_Anca_Dr\u0103gulescu.docx": {
+    "Education": 1
+  },
+  "cv_448_Adrian_Dumitru_Stanescu.docx": {
+    "Education": 0.5568043708801269
+  },
+  "cv_450_Mihai_C\u0103t\u0103lin_Dumitrescu.docx": {
+    "Education": 0.5097070097923279
+  },
+  "cv_451_Andrei_C\u0103lin_Marinescu.docx": {
+    "Media & Entertainment": 0.5048952460289001,
+    "Retail": 0.5010626137256622
+  },
+  "cv_452_Adrian_C\u0103t\u0103lin_Rusu.docx": {
+    "Manufacturing": 0.5032850921154022
+  },
+  "cv_45_Andrei_Mihailescu.docx": {
+    "Manufacturing": 0.5399263620376586
+  },
+  "cv_460_Andrei_Bucur_Dumitrescu.docx": {
+    "Real Estate": 0.5621431589126586
+  },
+  "cv_461_Adrian_Iacobescu.docx": {
+    "Retail": 1
+  },
+  "cv_463_Mihail_Andrei_Lupescu.docx": {
+    "Education": 1
+  },
+  "cv_46_Mihnea_Radu_V\u0103duva.docx": {
+    "Retail": 0.5098596334457397
+  },
+  "cv_477_Elena_Vasile_Toma.docx": {
+    "Retail": 0.5225663900375366
+  },
+  "cv_47_Sorin_Alin_V\u0103duva.docx": {
+    "Retail": 0.5924907207489014
+  },
+  "cv_484_Andrei_Mihai_Dr\u0103ghici.docx": {
+    "Manufacturing": 0.5287275433540344
+  },
+  "cv_48_Diana_R\u0103dulescu-Toma.docx": {
+    "Education": 1,
+    "Retail": 1,
+    "E-commerce": 0.5004696011543274
+  },
+  "cv_497_Andrei_Munteanu.docx": {
+    "Manufacturing": 0.5031941056251525
+  },
+  "cv_49_Teodora_M\u0103d\u0103lina_Stancu.docx": {
+    "Education": 1
+  },
+  "cv_4_Andrei_Mihailescu.docx": {
+    "Retail": 0.5449621796607971
+  },
+  "cv_50_Florin_Ilinca_Teodorescu.docx": {
+    "Retail": 1,
+    "E-commerce": 0.5155754148960113
+  },
+  "cv_53_Andrei_Vasile_Munteanu.docx": {
+    "Healthcare": 1
+  },
+  "cv_59_Andrei_Vasile_Bucur.docx": {
+    "Education": 1,
+    "Retail": 1,
+    "Transportation & Logistics": 1
+  },
+  "cv_5_Adrian_Mihai_Radu.docx": {
+    "Education": 1,
+    "Retail": 1
+  },
+  "cv_61_Raluca_Simionescu.docx": {
+    "Transportation & Logistics": 0.522407066822052,
+    "Education": 0.5056991040706634
+  },
+  "cv_63_Alexandru_C\u0103lin_Voinea.docx": {
+    "Manufacturing": 1
+  },
+  "cv_66_C\u0103t\u0103lina_Dumitrescu_Tudor.docx": {
+    "Education": 1,
+    "Retail": 0.5333213925361633
+  },
+  "cv_67_Elena_Teodorescu.docx": {
+    "Retail": 0.5454293072223664
+  },
+  "cv_68_Alina_Vasile_Corbu.docx": {
+    "Healthcare": 1,
+    "Education": 0.5069905877113342
+  },
+  "cv_70_Andrei_Dumitrescu-Ciobanu.docx": {
+    "Retail": 1
+  },
+  "cv_74_Elena_Marcu-B\u0103lan.docx": {
+    "Retail": 0.500657719373703
+  },
+  "cv_76_Andrei_Dumitru_Stoica.docx": {
+    "Healthcare": 0.5984698057174682
+  },
+  "cv_78_Mihai_Dr\u0103ghici.docx": {
+    "Retail": 1
+  },
+  "cv_81_Andrei_Dumitru_Vasile.docx": {
+    "Education": 1
+  },
+  "cv_84_Raluca_Mihailescu.docx": {
+    "Retail": 0.584957617521286,
+    "Finance (non-banking)": 0.5004535675048828
+  },
+  "cv_86_Adrian_Vasile_Radu.docx": {
+    "Retail": 1
+  },
+  "cv_88_Anca_Dobreanu.docx": {
+    "Retail": 0.5107029497623443
+  },
+  "cv_8_Elena_C\u0103t\u0103lina_Dumitrescu.docx": {
+    "Manufacturing": 0.5029171824455261
+  },
+  "cv_92_Alexandru_Mircea_Radu.docx": {
+    "Education": 0.5175969958305359
+  },
+  "cv_94_Andrei_Mihailescu.docx": {
+    "Education": 1,
+    "Retail": 1
+  }
+}
