@@ -1,22 +1,29 @@
-import streamlit as st
-import spacy
-import glob
-import os
-import numpy as np
-from docx import Document
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.preprocessing import MinMaxScaler
-from sentence_transformers import SentenceTransformer, util
-import json
-import re
-
+"""
+Modul principal pentru potrivirea job descriptions cu CV-uri folosind:
+- NLP (spaCy, SentenceTransformers)
+- Similaritate textuală (TF-IDF + cosine similarity)
+- Interfață Streamlit
+"""
+import streamlit as st  # Pentru interfața web
+import spacy  # Pentru procesarea limbajului natural (tokenizare, embedding-uri)
+import glob  # Pentru navigarea în fișiere
+import os  # Pentru operații cu căi de fișiere
+import numpy as np  # Pentru operații matematice
+from docx import Document  # Pentru citirea fișierelor Word (.docx)
+from sklearn.feature_extraction.text import TfidfVectorizer  # Vectorizare text
+from sklearn.metrics.pairwise import cosine_similarity  # Calcul similaritate
+from sklearn.preprocessing import MinMaxScaler  # Normalizare scoruri
+from sentence_transformers import SentenceTransformer, util  # Embedding-uri avansate
+import json  # Pentru citirea/scrierea scorurilor precalculate
+import re  # Pentru căutare text cu regex
 
 # Set your folders here
 cv_folder = './DataSet/cv'
 job_folder = './DataSet/job_descriptions'
 
 
+# Dicționar cu domenii industriale și cuvinte cheie asociate
+# Folosit pentru calculul Industry Knowledge Score (10% din scorul total)
 domain_data = { 
     "Banking": { "desc": "Developed software for banking platforms, digital wallets, loan processing, or credit systems.", 
                  "keywords": ["bank", "loan", "credit", "atm", "fintech", "interest", "account", "ledger"] }, 
@@ -56,34 +63,73 @@ domain_data = {
 
 
 def load_docx_from_folder(folder_path, is_cv=True):
+    """
+    Încarcă toate fișierele .docx dintr-un folder și extrage textul.
+    
+    Args:
+        folder_path (str): Calea către folder (ex: './DataSet/cv')
+        is_cv (bool): Dacă True, se procesează ca CV; False pentru job descriptions
+    
+    Returns:
+        tuple: (lista cu texte, lista cu nume de fișiere, lista cu descrieri)
+    """
     documents = []
     filenames = []
     descriptions = []
+    
     for filepath in glob.glob(os.path.join(folder_path, '*.docx')):
-        text = extract_text_from_docx(filepath=filepath, is_cv=is_cv)
-        text = text.replace('\n', ' ')
-        text = text.replace('  ', ' ')
-        if not is_cv:
-            text = text.split("Benefits:")[0]
-            description = text.split("Key Responsibilities:")[0]
-        else:
-            description = text.split("Project Experience")[1]
+        # Extrage textul din fiecare paragraf
+        text = extract_text_from_docx(filepath, is_cv)
+        
+        # Curăță spații și linii noi
+        text = text.replace('\n', ' ').replace('  ', ' ')
+        
+        # Procesare specifică
+        if not is_cv:  # Pentru job descriptions
+            text = text.split("Benefits:")[0]  # Ignoră secțiunea Benefits
+            description = text.split("Key Responsibilities:")[0]  # Extrage descrierea principală
+        else:  # Pentru CV-uri
+            description = text.split("Project Experience")[1] if "Project Experience" in text else ""
+        
         documents.append(text)
         filenames.append(os.path.basename(filepath))
         descriptions.append(description)
+    
     return documents, filenames, descriptions
 
-
 def extract_text_from_docx(filepath, is_cv):
+    """
+    Extrage textul dintr-un fișier .docx, ignorând primul paragraf pentru CV-uri.
+    
+    Args:
+        filepath (str): Calea către fișier
+        is_cv (bool): Dacă True, ignoră primul paragraf (presupus a fi header)
+    
+    Returns:
+        str: Textul concatenat din toate paragrafele
+    """
     doc = Document(filepath)
-    return ' '.join([para.text for para in doc.paragraphs[1 if is_cv else 0:]])
-
+    paragraphs = doc.paragraphs[1:] if is_cv else doc.paragraphs  # Ignoră header-ul pentru CV
+    return ' '.join(para.text for para in paragraphs)
 
 # Custom tokenizer using spaCy
 def spacy_tokenizer(text):
+    """
+    Tokenizează textul folosind spaCy, cu filtrare avansată.
+    
+    Args:
+        text (str): Textul de procesat
+    
+    Returns:
+        list: Liste de tokeni lematizați și filtrați
+    """
     doc = nlp(text)
-    return [token.lemma_.lower() for token in doc if not token.is_stop and not token.is_punct and not token.text.isspace() and not token.text.isnumeric()]
-
+    return [
+        token.lemma_.lower()  # Reduce cuvintele la forma de bază
+        for token in doc
+        if not token.is_stop and not token.is_punct  # Ignora stopwords și punctuatie
+        and not token.text.isspace() and not token.text.isnumeric()  # Ignora spatii/numere
+    ]
 
 def progress_bar_update(percent_complete, 
                         progress_bar,
@@ -94,41 +140,73 @@ def progress_bar_update(percent_complete,
 
 
 def get_matching_scores_between_cvs_and_job_description(cv_texts, job_text, progress_bar, status_text):
+    """
+    Calculează scorul de potrivire generală între fiecare CV și descrierea jobului.
+    ➤ Reprezintă 60% din scorul final.
+    ➤ Se folosesc: embeddings spaCy + vectorizare TF-IDF.
+    """
+
+    # Preprocesăm fiecare CV: tokenizare + lematizare (spaCy)
     cv_texts_preprocessed = [" ".join(spacy_tokenizer(cv_text)) for cv_text in cv_texts]
+
+    # Preprocesăm și textul jobului la fel (pentru comparație uniformă)
     job_text_preprocessed = " ".join(spacy_tokenizer(job_text))
 
     progress_bar_update(30, progress_bar, status_text)
 
-    similarities_embeddings = [nlp(job_text_preprocessed).similarity(nlp(cv_text_preprocessed)) for cv_text_preprocessed in cv_texts_preprocessed]
+    # Calculăm similaritatea semantică dintre fiecare CV și job description
+    #    folosind embedding-uri din spaCy (en_core_web_lg)
+    similarities_embeddings = [
+        nlp(job_text_preprocessed).similarity(nlp(cv_text_preprocessed))
+        for cv_text_preprocessed in cv_texts_preprocessed
+    ]
 
     progress_bar_update(70, progress_bar, status_text)
-    
-    # Combine both for training
+
+    # Combinăm toate textele (CV-uri + job) într-un corpus pentru vectorizare TF-IDF
+    #corpus = set de date folosit ca baza de referinta pentru a intelege cat de importante sunt cuvintele din fiecare continut
     combined_cv_job_description_preprocessed = cv_texts_preprocessed + [job_text_preprocessed]
 
-    # Fit vectorizer on combined
+    # Cream vectorii TF-IDF pentru toate textele din corpus
     vectorizer = TfidfVectorizer()
     tfidf_matrix = vectorizer.fit_transform(combined_cv_job_description_preprocessed)
-    
-    # Now split it back
-    cv_vectors = tfidf_matrix[:len(cv_texts_preprocessed)]
-    job_vectors = tfidf_matrix[len(cv_texts_preprocessed):]
 
+    # Separăm inapoi matricea: primii sunt CV-urile, ultimul e job-ul
+    #fiecare linie = un document (CV sau job), fiecare coloană = un cuvânt din vocabularul corpusului, fiecare valoare = scor TF-IDF pentru acel cuvânt în acel document
+    cv_vectors = tfidf_matrix[:len(cv_texts_preprocessed)]
+    job_vectors = tfidf_matrix[len(cv_texts_preprocessed):]  # e doar un vector
+
+    # Calculăm similaritatea lexicală între job și fiecare CV (TF-IDF cosine similarity)
+    #daca apare un cuvant in job si apare la fel si in cv => scorul va fi mare
     similarities_tfidf = cosine_similarity(job_vectors, cv_vectors)
+
     progress_bar_update(80, progress_bar, status_text)
-    
-    scaler = MinMaxScaler()    
-    similarities_tfidf_scaled = scaler.fit_transform(np.array(similarities_tfidf).reshape(-1, 1)).flatten()
-    
+
+    #  Normalizăm scorurile TF-IDF între 0 și 1 pentru a le putea combina corect cu cele semantice
+    scaler = MinMaxScaler()
+    similarities_tfidf_scaled = scaler.fit_transform(
+        np.array(similarities_tfidf).reshape(-1, 1)
+    ).flatten()
+
     progress_bar_update(90, progress_bar, status_text)
+
+    # Combinăm scorurile:
+    #    60% importanță pentru similaritatea semantică (embeddings) 
+    #    40% importanță pentru similaritatea lexicală (TF-IDF cosine) 
     similarities_embeddings = np.array(similarities_embeddings)
-    final_embeddings_tfidf_scores = 0.6 * similarities_embeddings + 0.4 * similarities_tfidf_scaled
-    
+    final_embeddings_tfidf_scores = (
+        0.6 * similarities_embeddings + 0.4 * similarities_tfidf_scaled
+    )
+
+    # Returnăm scorurile finale pentru toate CV-urile
     return final_embeddings_tfidf_scores
 
 
 def match_domains(model, domain_data, text, top_k=5, keyword_boost=0.1):
-
+    """
+    Verifică dacă un CV are experiență în domeniul specificat.
+    Combinație între semantic similarity + keyword boost.
+    """
     domain_names = list(domain_data.keys())
     domain_embeddings = model.encode([domain_data[d]["desc"] for d in domain_names], convert_to_tensor=True)
     
