@@ -13,3 +13,4 @@ spacy
 thinc
 matplotlib
 openai
+python-docx
