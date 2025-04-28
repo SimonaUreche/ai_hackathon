@@ -1,32 +1,32 @@
-# AI-Powered CV–Job Matching System (LLM Enhanced)
+# DevMatch: Intelligent Talent Allocation System
 
-> 🧠🔍 **DevMatch**: Reimagining how you connect brilliant developers to the right roles – lightning-fast, hyper-accurate, and powered by cutting-edge AI.
+![DevMatch Logo](https://via.placeholder.com/150x50?text=DevMatch) *(Consider adding a logo here)*
 
----
+## Overview
+DevMatch is an AI-powered system that automatically matches developers to projects based on:
+- 🔧 **Technical Skills** (Python, React, AWS, etc.)
+- 🏦 **Industry Knowledge** (Banking, Healthcare, IT, Retail)
+- 📝 **Semantic Fit** between CVs and Job Descriptions
 
+**Goal:** Optimize talent allocation to improve project success rates and team efficiency.
 
-## 🎯 What Is DevMatch?
-DevMatch is an **AI-powered CV–Job matching engine** that bridges the gap between project requirements and developer profiles. Leveraging large language models and semantic embeddings, DevMatch delivers:
+## Key Features
+| Feature | Description |
+|---------|-------------|
+|  Job-to-CV Matching | Upload a JD → Get top 5 matching CVs with scores |
+|  CV-to-Job Matching | Upload a CV → Find best matching jobs |
+|  Industry Matching | Prioritizes candidates with relevant industry experience |
+|  Custom Skill Weights | Define skill importance (weights sum to 100%) |
+|  Semantic Analysis | Combines keyword + contextual understanding |
+|  AI Explanations | Generated match rationales using GPT-4o |
 
-- 🔹 **Top-5 candidate recommendations** in under **3 seconds**  
-- 🔹 **Transparent scoring** with detailed explanations  
-- 🔹 **Industry-aware matches** (banking, healthcare, fintech…)  
-- 🔹 **Customizable skill weighting** per job  
+## Matching Algorithm
+**Final Score =**  
+`(Industry × 0.10) + (Technical Skills × 0.30) + (Semantic Match × 0.60)`
 
-Whether you’re HR, a hiring manager, or a recruitment platform, DevMatch turns the manual matchmaking pain into an automated, scalable delight.
-
----
-
-## ✨ Key Features
-
-| Feature                                 | Description                                                  |
-|-----------------------------------------|--------------------------------------------------------------|
-| **Semantic Matching (60%)**             | Deep cosine similarity via SBERT embeddings          |
-| **Skill-Weighted Matching (30%)**       | Predefined technical skills with user-assigned weights       |
-| **Industry Knowledge Scoring (10%)**    | Regex & ML-driven detection of domain-specific experience    |
-| **Lightning-Fast Indexing**             | FAISS index for sub-second nearest neighbor search           |
-| **Async Explanation Generation**        | LLM-powered natural language rationale for each match        |
-| **Dual Interfaces**                     | 1. Job → CVs & 2. CV → Jobs                                  |
-| **Configurable & Extensible**           | Add new industries, tweak weights, swap embedder or LLM      |
-
----
+## Tech Stack
+- **Frontend**: Streamlit
+- **NLP**: spaCy, Sentence-Transformers
+- **ML**: Scikit-learn (TF-IDF, similarity scoring)
+- **Database**: SQLite (metadata storage)
+- **AI**: OpenAI GPT-4o (explanations)
