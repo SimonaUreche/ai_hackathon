@@ -1,9 +1,16 @@
+GitPython==3.1.44
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+PyYAML==6.0.2
+Pygments==2.19.1
+SQLAlchemy==2.0
+Send2Trash==1.8.3
 alembic==1.11
 altair==5.5.0
 annotated-types==0.7.0
 anyio==4.9.0
-argon2-cffi==23.1.0
 argon2-cffi-bindings==21.2.0
+argon2-cffi==23.1.0
 arrow==1.3.0
 asttokens==3.0.0
 async-lru==2.0.5
@@ -35,7 +42,6 @@ filelock==3.18.0
 fqdn==1.5.1
 fsspec==2025.3.2
 gitdb==4.0.12
-GitPython==3.1.44
 h11==0.14.0
 httpcore==1.0.8
 httpx==0.28.1
@@ -47,12 +53,11 @@ ipython_pygments_lexers==1.1.1
 ipywidgets==8.1.6
 isoduration==20.11.0
 jedi==0.19.2
-Jinja2==3.1.6
 joblib==1.4.2
 json5==0.12.0
 jsonpointer==3.0.0
-jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
+jsonschema==4.23.0
 jupyter-events==0.12.0
 jupyter-lsp==2.2.5
 jupyter_client==8.6.3
@@ -68,7 +73,6 @@ language_data==1.3.0
 lxml==5.3.2
 marisa-trie==1.2.1
 markdown-it-py==3.0.0
-MarkupSafe==3.0.2
 matplotlib-inline==0.1.7
 mdurl==0.1.2
 mistune==3.1.3
@@ -83,6 +87,7 @@ networkx==3.4.2
 nltk==3.9.1
 notebook_shim==0.2.4
 numpy==2.2.4
+openai
 overrides==7.7.0
 packaging==24.2
 pandas
@@ -101,12 +106,11 @@ pycparser==2.22
 pydantic==2.11.3
 pydantic_core==2.33.1
 pydeck==0.9.1
-Pygments==2.19.1
 python-dateutil==2.9.0.post0
 python-docx==1.1.2
+python-dotenv
 python-json-logger==3.3.0
 pytz==2025.2
-PyYAML==6.0.2
 pyzmq==26.4.0
 referencing==0.36.2
 regex==2024.11.6
@@ -118,7 +122,6 @@ rpds-py==0.24.0
 safetensors==0.5.3
 scikit-learn
 scipy
-Send2Trash==1.8.3
 sentence-transformers==4.1.0
 setuptools==78.1.0
 shellingham==1.5.4
@@ -130,7 +133,6 @@ soupsieve==2.6
 spacy
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
-SQLAlchemy==2.0
 srsly==2.5.1
 stack-data==0.6.3
 streamlit==1.44.1
@@ -163,6 +165,3 @@ webencodings==0.5.1
 websocket-client==1.8.0
 widgetsnbextension==4.0.14
 wrapt==1.17.2
-openai
-python-dotenv
-pytest

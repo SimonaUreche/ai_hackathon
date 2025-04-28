@@ -29,6 +29,8 @@ def get_keyword_matching_scores(custom_skills, text):
 
 
 def get_matching_scores_between_cv_and_job_descriptions(cv_text, job_texts, progress_bar, status_text):
+    if not job_texts:
+        return []
     def compute_batch_similarity(batch, cv_doc):
         return [cv_doc.similarity(nlp(job_text)) for job_text in batch]
 
@@ -77,13 +79,10 @@ def get_matching_scores_between_cv_and_job_descriptions(cv_text, job_texts, prog
 
 
 def filter_jobs_by_industry(db_path, jd_folder, selected_industry):
-    # Load all JD from the folder
     jd_texts, jd_filenames, _ = load_docx_from_folder(jd_folder, is_cv=False)
 
-    # Get industry scores for the JD
     industry_scores = get_job_industry_scores(db_path, jd_filenames, selected_industry)
 
-    # Filter CVs based on industry scores
     filtered_indices = [i for i, score in enumerate(industry_scores) if score > 0]
 
     if not filtered_indices:
@@ -172,7 +171,6 @@ if start_button:
             cv_text, jd_texts, progress_bar, status_text
         )
 
-        # Skills Matching based on user defined skills
         skill_scores = np.array([
             get_keyword_matching_scores(custom_skills, job_text)
             for job_text in jd_texts
@@ -184,7 +182,6 @@ if start_button:
         scaler = MinMaxScaler()
         skill_scores_norm = scaler.fit_transform(skill_scores.reshape(-1, 1)).flatten()
 
-        # Final Score: 10% Industry + 30% Skills + 60% CV Matching
         final_scores = (
             0.1 * industry_scores +
             0.3 * skill_scores_norm +

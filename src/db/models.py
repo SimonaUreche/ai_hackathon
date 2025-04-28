@@ -13,10 +13,8 @@ class CV(Base):
     created_at = Column(DateTime, default=func.now(), nullable=False)
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now(), nullable=False)
     
-    # Relationships
     industry_scores = relationship("CVIndustryScore", back_populates="cv", cascade="all, delete-orphan")
     
-    # Indexes
     __table_args__ = (
         Index('idx_cv_filename', 'filename'),
         Index('idx_cv_created', 'created_at'),
@@ -32,10 +30,8 @@ class CVIndustryScore(Base):
     explanation = Column(Text)
     created_at = Column(DateTime, default=func.now(), nullable=False)
     
-    # Relationships
     cv = relationship("CV", back_populates="industry_scores")
     
-    # Constraints
     __table_args__ = (
         CheckConstraint('score >= 0 AND score <= 100', name='check_score_range'),
         Index('idx_cv_industry', 'cv_id', 'industry'),
@@ -53,7 +49,6 @@ class JobDescription(Base):
     # Relationships
     industries = relationship("JobIndustryScore", back_populates="job_description", cascade="all, delete-orphan")
     
-    # Indexes
     __table_args__ = (
         Index('idx_job_filename', 'filename'),
         Index('idx_job_created', 'created_at'),
@@ -69,10 +64,8 @@ class JobIndustryScore(Base):
     explanation = Column(Text)
     created_at = Column(DateTime, default=func.now(), nullable=False)
     
-    # Relationships
     job_description = relationship("JobDescription", back_populates="industries")
     
-    # Constraints
     __table_args__ = (
         CheckConstraint('score >= 0 AND score <= 100', name='check_score_range'),
         Index('idx_job_industry', 'job_id', 'industry'),

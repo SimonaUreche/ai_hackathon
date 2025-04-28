@@ -5,14 +5,12 @@ from docx import Document
 import warnings
 import logging
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 warnings.filterwarnings('ignore', category=UserWarning)
 
 def extract_text_from_docx(filepath, is_cv):
-    """Extract text from a DOCX file with error handling"""
     try:
         doc = Document(filepath)
         paragraphs = doc.paragraphs[1 if is_cv else 0:]  # Skip first paragraph for CVs
@@ -28,7 +26,6 @@ def extract_text_from_docx(filepath, is_cv):
         return None
 
 def load_docx_from_folder(folder_path, is_cv=True):
-
     if not os.path.exists(folder_path):
         logger.error(f"Folder path does not exist: {folder_path}")
         return [], [], []
@@ -40,13 +37,12 @@ def load_docx_from_folder(folder_path, is_cv=True):
         
     logger.info(f"Found {len(filepaths)} DOCX files in {folder_path}")
     
-    documents = []  # full text of the file
-    filenames = []  # file names
-    descriptions = []  # an important part of each file
+    documents = []  
+    filenames = []  
+    descriptions = []  
     
     for filepath in filepaths:
         try:
-            # Skip temporary Word files
             if os.path.basename(filepath).startswith('~$'):
                 continue
                 
@@ -83,19 +79,13 @@ def load_docx_from_folder(folder_path, is_cv=True):
     return documents, filenames, descriptions
 
 
-#---------------------------------------------------
 nlp = spacy.load("en_core_web_lg")
-# Custom tokenizer using spaCy
-# takes a text, passes it through the SpaCy pipeline and returns a list of normalized words (lemmatized, lowercase),
-# excluding stopwords, punctuation, spaces and numbers
 def spacy_tokenizer(text):
     doc = nlp(text)  #
     return [token.lemma_.lower() for token in doc if
             not token.is_stop and not token.is_punct and not token.text.isspace() and not token.text.isnumeric()]
 
 
-
-#---------------------------------------------------
 def progress_bar_update(percent_complete,
                         progress_bar,
                         status_text):

@@ -7,33 +7,17 @@ import magic
 
 logger = logging.getLogger(__name__)
 
-class DocumentProcessor:
-    """Common functionality for processing documents."""
-    
+class DocumentProcessor:    
     MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
     
     @staticmethod
     def read_docx(file_path: str) -> Optional[str]:
-        """
-        Read a .docx file and return its text content.
-        
-        Args:
-            file_path: Path to the .docx file
-            
-        Returns:
-            The text content of the document or None if there's an error
-            
-        Raises:
-            ValueError: If the file is not a .docx file or is too large
-        """
         try:
             path = Path(file_path)
             
-            # Check file size
             if path.stat().st_size > DocumentProcessor.MAX_FILE_SIZE:
                 raise ValueError(f"File {file_path} is too large. Maximum size is {DocumentProcessor.MAX_FILE_SIZE/1024/1024}MB")
             
-            # Check file type
             mime = magic.Magic(mime=True)
             file_type = mime.from_file(str(path))
             if file_type != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
@@ -54,18 +38,6 @@ class DocumentProcessor:
             
     @staticmethod
     def read_pdf(file_path: str) -> Optional[str]:
-        """
-        Read a PDF file and return its text content.
-        
-        Args:
-            file_path: Path to the PDF file
-            
-        Returns:
-            The text content of the document or None if there's an error
-            
-        Raises:
-            ValueError: If the file is not a PDF file or is too large
-        """
         try:
             path = Path(file_path)
             
@@ -86,11 +58,11 @@ class DocumentProcessor:
                     text += page.extract_text() + "\n"
                     
             if not text.strip():
-                logger.warning(f"No text content found in {file_path}")
+                logger.warning(f"no text content found in {file_path}")
                 return None
                 
             return text.strip()
             
         except Exception as e:
-            logger.error(f"Error reading PDF {file_path}: {str(e)}")
-            raise 
+            logger.error(f"error reading PDF {file_path}: {str(e)}")
+            raise

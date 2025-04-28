@@ -7,25 +7,11 @@ from typing import Tuple, Dict
 logger = logging.getLogger(__name__)
 
 def read_docx(file_path: str) -> str:
-    """Citește un fișier .docx și returnează textul."""
     doc = Document(file_path)
     full_text = [para.text for para in doc.paragraphs]
     return "\n".join(full_text)
 
 def parse_job_description(file_path: str, prompt: str) -> Tuple[Dict[str, int], Dict[str, str]]:
-    """
-    Process a job description and return industry scores.
-    
-    Args:
-        file_path: Path to the job description file
-        prompt: The prompt template to use
-        
-    Returns:
-        Tuple containing industry scores and explanations
-        
-    Raises:
-        ValueError: If the file is invalid or processing fails
-    """
     try:
         text = DocumentProcessor.read_docx(file_path)
         if not text:

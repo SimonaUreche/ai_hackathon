@@ -8,43 +8,25 @@ from typing import Tuple, Dict
 import time
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Load API Key
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
-# Verifică dacă cheia API există
 if not api_key:
-    logger.error("OPENAI_API_KEY nu a fost găsită în variabilele de mediu.")
-    logger.error("Vă rugăm să creați un fișier .env în directorul rădăcină al proiectului")
-    logger.error("și să adăugați cheia API în formatul: OPENAI_API_KEY=your_key_here")
+    logger.error("OPENAI_API_KEY was not found in the environment variables.")
+    logger.error("Please create a .env file in the root directory of the project and add the API key in the format: OPENAI_API_KEY=your_key_here")
     raise ValueError(
-        "OPENAI_API_KEY nu a fost găsită. "
-        "Vă rugăm să creați un fișier .env în directorul rădăcină al proiectului "
-        "și să adăugați cheia API în formatul: OPENAI_API_KEY=your_key_here"
+        "OPENAI_API_KEY was not found. "
+        "Please create a .env file in the root directory of the project"
+        "and add the API key in the format: OPENAI_API_KEY=your_key_here"
     )
 
 client = OpenAI(api_key=api_key)
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
 def analyze_text(text: str, prompt: str) -> Tuple[Dict[str, int], Dict[str, str]]:
-    """
-    Analyze text using OpenAI API with retry logic and error handling.
-    
-    Args:
-        text: The text to analyze
-        prompt: The prompt template to use
-        
-    Returns:
-        Tuple containing industry scores and explanations
-        
-    Raises:
-        ValueError: If the API response is invalid
-        Exception: For other API-related errors
-    """
     try:
         full_prompt = prompt.format(text=text)
         response = client.chat.completions.create(

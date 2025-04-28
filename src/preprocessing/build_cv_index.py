@@ -16,7 +16,7 @@ def main():
 
     for idx, cv_fname in enumerate(cv_files):
         cv_path = os.path.join(CV_DIR, cv_fname)
-        print(f"Procesez CV {idx+1}/{len(cv_files)}: {cv_fname}")
+        print(f"Process CV {idx+1}/{len(cv_files)}: {cv_fname}")
 
         industry_scores, explanations = parse_cv(cv_path, cv_prompt)
 
@@ -34,7 +34,7 @@ def main():
             ))
     session.commit()
     session.close()
-    print("Datele pentru CV-uri au fost inserate în baza de date.")
+    print("DB done (cv)")
 
 if __name__ == "__main__":
     main()

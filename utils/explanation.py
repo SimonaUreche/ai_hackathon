@@ -2,8 +2,9 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
-# Load your OpenAI key
 load_dotenv()
+print("Loaded key:", os.getenv("OPENAI_API_KEY"))
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_explanation_with_llm_job_to_cv(cv_filename, domain_score, skills_score, matching_score, matched_skills, domain_selected):
@@ -33,9 +34,6 @@ Use a professional and formal tone.
 
     explanation = response.choices[0].message.content
     return explanation
-
-
-#-------------------------------------------------------
 
 
 def generate_explanation_with_llm_cv_to_job(cv_filename, domain_score, skills_score, matching_score, matched_skills, domain_selected):

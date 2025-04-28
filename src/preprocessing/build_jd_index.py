@@ -16,7 +16,7 @@ def main():
 
     for idx, job_fname in enumerate(job_files):
         job_path = os.path.join(JD_DIR, job_fname)
-        print(f"Procesez Job Description {idx+1}/{len(job_files)}: {job_fname}")
+        print(f"Process Job Description {idx+1}/{len(job_files)}: {job_fname}")
 
         industry_scores, explanations = parse_job_description(job_path, jd_prompt)
 
@@ -34,7 +34,7 @@ def main():
             ))
     session.commit()
     session.close()
-    print("Datele pentru job descriptions au fost inserate în baza de date.")
+    print("DB done (jd)")
 
 if __name__ == "__main__":
     main()

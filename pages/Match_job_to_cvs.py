@@ -23,8 +23,7 @@ from src.db.queries import (
 cv_folder = './DataSet/cv'
 job_folder = './DataSet/job_descriptions'
 
-
-def get_keyword_matching_scores(custom_skills, cv_text):
+def get_keyword_matching_scores(custom_skills, cv_text): ##
     skill_matches = {}
     for skill, weight in custom_skills:
         count = len(re.findall(rf"\b{re.escape(skill.lower())}\b", cv_text.lower()))
@@ -33,10 +32,8 @@ def get_keyword_matching_scores(custom_skills, cv_text):
     return total_score / 100
 
 def get_cv_keyword_matching_scores(custom_skills, cv_texts):
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        scores = list(executor.map(lambda cv: get_keyword_matching_scores(custom_skills, cv), cv_texts))
+    scores = [get_keyword_matching_scores(custom_skills, cv_text) for cv_text in cv_texts]
     return np.array(scores)
-
 
 def get_skills_matched_for_cv(custom_skills, cv_text):
     skill_matches = {}
@@ -45,7 +42,10 @@ def get_skills_matched_for_cv(custom_skills, cv_text):
         skill_matches[skill] = (count > 0, weight)
     return skill_matches
 
-def get_matching_scores_between_cvs_and_job_description(cv_texts, job_text, progress_bar, status_text):
+def get_matching_scores_between_cvs_and_job_description(cv_texts, job_text, progress_bar, status_text): ##
+    if not cv_texts:
+        return []
+
     def compute_batch_similarity(batch, job_vector):
         return [job_vector.similarity(nlp(cv_text)) for cv_text in batch]
 
@@ -89,9 +89,9 @@ def get_matching_scores_between_cvs_and_job_description(cv_texts, job_text, prog
 
 def filter_cvs_by_industry(db_path, cv_folder, selected_industry):
     cv_texts, cv_filenames, _ = load_docx_from_folder(cv_folder, is_cv=True)
-
+    
     industry_scores = get_cv_industry_scores(db_path, cv_filenames, selected_industry)
-
+    
     filtered_indices = [i for i, score in enumerate(industry_scores) if score > 0]
     
     if not filtered_indices:
@@ -102,8 +102,6 @@ def filter_cvs_by_industry(db_path, cv_folder, selected_industry):
         [cv_filenames[i] for i in filtered_indices],
         industry_scores[filtered_indices]
     )
-
-# ---------------------- UI ----------------------------------------
 
 st.title("📌 Match Job → CVs")
 
