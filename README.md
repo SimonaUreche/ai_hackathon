@@ -4,9 +4,9 @@
 
 ## Overview
 DevMatch is an AI-powered system that automatically matches developers to projects based on:
-- 🔧 **Technical Skills** (Python, React, AWS, etc.)
-- 🏦 **Industry Knowledge** (Banking, Healthcare, IT, Retail)
-- 📝 **Semantic Fit** between CVs and Job Descriptions
+- **Technical Skills** (Python, React, AWS, etc.)
+- **Industry Knowledge** (Banking, Healthcare, IT, Retail)
+- **Semantic Fit** between CVs and Job Descriptions
 
 **Goal:** Optimize talent allocation to improve project success rates and team efficiency.
 
