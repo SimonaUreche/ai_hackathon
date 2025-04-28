@@ -1,18 +1,8 @@
-streamlit
-pandas
-numpy
-scikit-learn
+streamlit>=1.28.0
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
 spacy==3.7.2
-thinc==8.2.2
-matplotlib
-streamlit
-pandas
-numpy
-scikit-learn
-spacy
-thinc
-matplotlib
-openai
-python-docx
+thinc==8.1.12  # Versiune compatibilă cu spacy 3.7.2
+python-docx>=0.8.11
 en_core_web_lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl
-
