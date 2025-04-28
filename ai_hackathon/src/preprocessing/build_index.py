@@ -1,57 +1,54 @@
 # src/preprocessing/build_index.py
 
 import os
-import json
-import numpy as np
-import hnswlib
-from sentence_transformers import SentenceTransformer
-
 from DB.session import engine, Base, SessionLocal
-from DB.models  import CV
-
-from src.preprocessing.extract_text    import load_docx_from_folder
-from src.preprocessing.parse_skills    import parse_skills_from_description
-from src.preprocessing.parse_industry  import parse_industry_from_description
+from DB.models  import JobDescription, JobIndustryScore
+from src.preprocessing.parse_industry  import get_industry_scores_from_text, jd_prompt
 
 PROJECT_ROOT   = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-DATASET_PATH   = os.path.join(PROJECT_ROOT, "DataSet", "cv")
-INDEX_PATH     = os.path.join(PROJECT_ROOT, "data", "cv_embeddings_hnsw.index")
 DB_PATH        = os.path.join(PROJECT_ROOT, "data", "cvs_metadata.sqlite")
-EMB_MODEL_NAME = "all-MiniLM-L6-v2"
 
 def main():
     # ensure data/ exists
-    os.makedirs(os.path.dirname(INDEX_PATH), exist_ok=True)
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-
-    docs, filenames, descriptions = load_docx_from_folder(DATASET_PATH, is_cv=True)
-
-    model = SentenceTransformer(EMB_MODEL_NAME)
-    embs  = model.encode(docs, convert_to_numpy=True).astype("float32")
-
-    dim          = embs.shape[1]
-    num_elements = embs.shape[0]
-    p = hnswlib.Index(space='cosine', dim=dim)
-    p.init_index(max_elements=num_elements, ef_construction=200, M=16)
-    p.add_items(embs, np.arange(num_elements))
-    p.set_ef(50)
-    p.save_index(INDEX_PATH)
 
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
-    for fname, desc in zip(filenames, descriptions):
-        skills          = parse_skills_from_description(desc)
-        industry_scores = parse_industry_from_description(desc,skills)
-        cv = CV(
-            filename      = fname,
-            skills_json   = json.dumps(skills, ensure_ascii=False),
-            industry_json = json.dumps(industry_scores, ensure_ascii=False),
-        )
-        db.add(cv)
+
+    JOB_DESC_PATH = os.path.join(PROJECT_ROOT, "DataSet", "job_descriptions")
+    job_files = [f for f in os.listdir(JOB_DESC_PATH) if f.endswith(".docx")]
+
+    for idx, job_fname in enumerate(job_files):
+        job_path = os.path.join(JOB_DESC_PATH, job_fname)
+        print(f"Procesez Job Description {idx+1}/{len(job_files)}: {job_fname}")
+
+        # Citește textul job description-ului
+        from docx import Document
+        doc = Document(job_path)
+        job_text = "\n".join([para.text for para in doc.paragraphs])
+
+        # Extrage industriile și explicațiile
+        industry_scores, explanations = get_industry_scores_from_text(job_text, jd_prompt)
+
+        # Creează și inserează JobDescription
+        job = JobDescription(filename=job_fname, text=job_text)
+        db.add(job)
+        db.commit()  # ca să primească id
+
+        # Inserează scorurile pe industrii pentru job
+        for industry, score in industry_scores.items():
+            explanation = explanations.get(industry, "")
+            job_industry_score = JobIndustryScore(
+                job_id=job.id,
+                industry=industry,
+                score=score,
+                explanation=explanation
+            )
+            db.add(job_industry_score)
     db.commit()
     db.close()
 
-    print("built successfully.")
+    print("Datele pentru job descriptions au fost inserate în baza de date.")
 
 if __name__ == "__main__":
     main()

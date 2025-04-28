@@ -10,6 +10,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sentence_transformers import SentenceTransformer, util
 import json
 import re
+from src.preprocessing.parse_industry import get_industry_scores_from_text, jd_prompt
 
 
 # Set your folders here
