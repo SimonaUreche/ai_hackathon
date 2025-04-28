@@ -2,8 +2,8 @@ streamlit
 pandas
 numpy
 scikit-learn
-spacy
-thinc
+spacy==3.7.2
+thinc==8.2.2
 matplotlib
 streamlit
 pandas
