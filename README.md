@@ -1,7 +1,5 @@
 # DevMatch: Intelligent Talent Allocation System
 
-![DevMatch Logo](https://via.placeholder.com/150x50?text=DevMatch) *(Consider adding a logo here)*
-
 ## Overview
 DevMatch is an AI-powered system that automatically matches developers to projects based on:
 - **Technical Skills** (Python, React, AWS, etc.)
