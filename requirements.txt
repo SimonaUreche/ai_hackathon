@@ -13,7 +13,7 @@ colorama==0.4.6
 confection==0.1.5
 cymem==2.0.11
 distro==1.9.0
-en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.6.0/en_core_web_lg-3.6.0-py3-none-any.whl#sha256=9012584a8fcf5bc61bedb13a4b511fb81ffff9f770958ee06366671be10632e9
+en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.6.0/en_core_web_lg-3.6.0-py3-none-any.whl
 et_xmlfile==2.0.0
 filelock==3.18.0
 fsspec==2025.3.2
