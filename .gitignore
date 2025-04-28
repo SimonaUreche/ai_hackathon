@@ -1,1 +1,33 @@
+# Mediile virtuale
+.venv/
 venv/
+
+# Configurații editor
+.vscode/
+.idea/
+
+# Fișiere log
+*.log
+
+# Fișiere temporare
+*~
+*.swp
+*.bak
+
+# Fișiere sistem OS
+.DS_Store
+Thumbs.db
+
+# Chei API și fișiere sensibile
+.env
+*.env
+config.json
+secret_key.json
+
+# Fișiere cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Fișiere de instalare
+pip-log.txt

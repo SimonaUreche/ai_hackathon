@@ -1,5 +1,0 @@
-banking
-healthcare
-education
-retail
-automotive
