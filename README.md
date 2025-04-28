@@ -4,19 +4,6 @@
 
 ---
 
-## 🚀 Table of Contents
-1. [What Is DevMatch?](#what-is-devmatch)
-2. [Key Features](#key-features)
-3. [Architecture Overview](#architecture-overview)
-4. [Installation & Quickstart](#installation--quickstart)
-5. [Usage Examples](#usage-examples)
-6. [Scoring Methodology](#scoring-methodology)
-7. [Configuration & Tuning](#configuration--tuning)
-8. [Tech Stack](#tech-stack)
-9. [Contributing](#contributing)
-10. [License](#license)
-
----
 
 ## 🎯 What Is DevMatch?
 DevMatch is an **AI-powered CV–Job matching engine** that bridges the gap between project requirements and developer profiles. Leveraging large language models and semantic embeddings, DevMatch delivers:
@@ -34,7 +21,7 @@ Whether you’re HR, a hiring manager, or a recruitment platform, DevMatch turns
 
 | Feature                                 | Description                                                  |
 |-----------------------------------------|--------------------------------------------------------------|
-| **Semantic Matching (60%)**             | Deep cosine similarity via SBERT/JobBERT embeddings          |
+| **Semantic Matching (60%)**             | Deep cosine similarity via SBERT embeddings          |
 | **Skill-Weighted Matching (30%)**       | Predefined technical skills with user-assigned weights       |
 | **Industry Knowledge Scoring (10%)**    | Regex & ML-driven detection of domain-specific experience    |
 | **Lightning-Fast Indexing**             | FAISS index for sub-second nearest neighbor search           |
