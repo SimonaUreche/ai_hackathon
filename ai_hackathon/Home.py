@@ -1,16 +1,32 @@
 import streamlit as st
 
-st.set_page_config(page_title="CV & Job Matcher", layout="centered")
+st.set_page_config(
+    page_title="CV & Job Matcher",
+    layout="centered"
+)
 
-st.title("Job Description <-> CV Matcher")
+st.title("Welcome to CV & Job Matcher")
+st.markdown("""
+### Your AI-Powered Career Matchmaker
 
-st.markdown( """ Welcome! Use the sidebar to:
-1. Match a new job description to the most suitable CVs.
-2. Upload a CV and get the best-fitting job. """ )
+This application helps you find the perfect match between job descriptions and CVs using advanced AI technology.
 
-#st.progress(10)
+#### 🎯 What you can do:
 
-#st.spinner("Wait for it...")
+1. **Match Job to CVs** 📋
+   - Upload a job description
+   - Find the best matching CVs from our database
+   - Get detailed matching scores and explanations
 
+2. **Match CV to Jobs** 📄
+   - Upload your CV
+   - Find the most suitable jobs
+   - See how well your skills match each position
 
-#st.balloons()
+#### 🚀 Getting Started:
+Use the sidebar to navigate between these features and start matching!
+""")
+
+st.markdown("---")
+
+st.info("👈 Select a feature from the sidebar to begin!")
